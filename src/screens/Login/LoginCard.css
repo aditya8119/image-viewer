@@ -1,0 +1,16 @@
+.login-card{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+
+}
+.card-content{
+    width:400px;
+    padding-left: 50px;
+    padding-top:40px;
+    padding-bottom:40px;
+}
+
+.full-width{
+    width: 320px;
+}
