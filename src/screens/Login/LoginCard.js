@@ -43,16 +43,16 @@ class LoginCard extends Component {
                 <br/>
                 <FormControl required>
                     <InputLabel htmlFor="username">Username </InputLabel>
-                    <Input id="username" type="text" className="full-width"/>
-                    <FormHelperText className={this.state.usernameRequired} onChange={this.inputUsernameChangeHandler}>
+                    <Input id="username" type="text" className="full-width"  className={this.state.username} onChange={this.inputUsernameChangeHandler}/>
+                    <FormHelperText className={this.state.usernameRequired}>
                     <span className="red">required</span>
                     </FormHelperText>
                 </FormControl>
                 <br/><br/>
                 <FormControl required>
                     <InputLabel htmlFor="password">Password </InputLabel>
-                    <Input id="password" type="password" className="full-width" />
-                    <FormHelperText className={this.state.passwordRequired} onChange={this.inputPasswordChangeHandler}>
+                    <Input id="password" type="password" className="full-width" className={this.state.password} onChange={this.inputPasswordChangeHandler} />
+                    <FormHelperText className={this.state.passwordRequired}>
                     <span className="red">required</span>
                     </FormHelperText>
                 </FormControl>
