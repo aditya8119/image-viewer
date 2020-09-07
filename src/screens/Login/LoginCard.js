@@ -20,13 +20,15 @@ class LoginCard extends Component {
             password:"",
             usernameRequired:"dispNone",
             passwordRequired:"dispNone",
-            isLogin:"true"
+            isLogin:"true",
+            incorrectCredentials:"dispNone"
         }
     }
     loginClickHandler = (e) => {
         e.preventDefault();
         this.state.username === "" ? this.setState({usernameRequired: "dispBlock" }) : this.setState({ usernameRequired: "dispNone" });
         this.state.password === "" ? this.setState({ passwordRequired: "dispBlock" }) : this.setState({ passwordRequired: "dispNone" });
+        this.setState({incorrectCredentials:'dispNone'});
 
         if (this.state.usernameRequired === 'dispNone'){
             if(this.state.passwordRequired === 'dispNone'){
@@ -34,7 +36,8 @@ class LoginCard extends Component {
                     if (this.state.password === "admin"){
                         this.props.updateLoginState(this.state.isLogin);
                     }
-
+                } else {
+                    this.setState({incorrectCredentials:'dispBlock'});
                 }
                     
                 
@@ -69,6 +72,9 @@ class LoginCard extends Component {
                     <Input id="password" type="password"  className={this.state.password} onChange={this.inputPasswordChangeHandler}/>
                     <FormHelperText className={this.state.passwordRequired}>
                     <span className="red">required</span>
+                    </FormHelperText>
+                    <FormHelperText className={this.state.incorrectCredentials}>
+                    <span className="red">Incorrect username and/or password</span>
                     </FormHelperText>
                 </FormControl>
                 <br/><br/><br/>
