@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {BrowserRouter} from "react-router-dom";
-import Home from './screens/HomePage/Home';
+import Home from './screens/HomeScreen/Home';
 import * as serviceWorker from './serviceWorker';
-import { Router } from 'react-router-dom';
 
 ReactDOM.render(
     <BrowserRouter>

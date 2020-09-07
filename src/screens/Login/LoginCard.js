@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -10,6 +8,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import "./LoginCard.css";
 import FormHelperText from "@material-ui/core/FormHelperText" 
+import Home from "../HomeScreen/Home";
 
 
 class LoginCard extends Component {
@@ -20,12 +19,28 @@ class LoginCard extends Component {
             username:"",
             password:"",
             usernameRequired:"dispNone",
-            passwordRequired:"dispNone"
+            passwordRequired:"dispNone",
+            isLogin:"true"
         }
     }
     loginClickHandler = (e) => {
+        e.preventDefault();
         this.state.username === "" ? this.setState({usernameRequired: "dispBlock" }) : this.setState({ usernameRequired: "dispNone" });
         this.state.password === "" ? this.setState({ passwordRequired: "dispBlock" }) : this.setState({ passwordRequired: "dispNone" });
+
+        if (this.state.usernameRequired === 'dispNone'){
+            if(this.state.passwordRequired === 'dispNone'){
+                if (this.state.username === "admin"){
+                    if (this.state.password === "admin"){
+                        this.props.updateLoginState(this.state.isLogin);
+                    }
+
+                }
+                    
+                
+            }
+        }
+
     }
 
     inputUsernameChangeHandler = (e) =>{
@@ -36,14 +51,14 @@ class LoginCard extends Component {
     }
     render(){
         return (
-            <div className="login-card">
+            <form className="login-card">
             <Card variant="outlined" raised={true} className="card-content">
               <CardContent>
                 <Typography variant="h5">LOGIN</Typography>
                 <br/>
                 <FormControl required>
                     <InputLabel htmlFor="username">Username </InputLabel>
-                    <Input id="username" type="text" className="full-width"  className={this.state.username} onChange={this.inputUsernameChangeHandler}/>
+                    <Input id="username" type="text" className={this.state.username} onChange={this.inputUsernameChangeHandler}/>
                     <FormHelperText className={this.state.usernameRequired}>
                     <span className="red">required</span>
                     </FormHelperText>
@@ -51,7 +66,7 @@ class LoginCard extends Component {
                 <br/><br/>
                 <FormControl required>
                     <InputLabel htmlFor="password">Password </InputLabel>
-                    <Input id="password" type="password" className="full-width" className={this.state.password} onChange={this.inputPasswordChangeHandler} />
+                    <Input id="password" type="password"  className={this.state.password} onChange={this.inputPasswordChangeHandler}/>
                     <FormHelperText className={this.state.passwordRequired}>
                     <span className="red">required</span>
                     </FormHelperText>
@@ -60,7 +75,7 @@ class LoginCard extends Component {
                 <Button variant="contained" color="primary" onClick={this.loginClickHandler}>LOGIN</Button>
             </CardContent>
             </Card>
-            </div>
+            </form>
           );
     }
 
