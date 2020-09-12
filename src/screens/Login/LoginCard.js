@@ -8,7 +8,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import "./LoginCard.css";
 import FormHelperText from "@material-ui/core/FormHelperText" 
-import Home from "../HomeScreen/Home";
+
 
 
 class LoginCard extends Component {
@@ -25,7 +25,6 @@ class LoginCard extends Component {
         }
     }
     loginClickHandler = (e) => {
-        e.preventDefault();
         this.state.username === "" ? this.setState({usernameRequired: "dispBlock" }) : this.setState({ usernameRequired: "dispNone" });
         this.state.password === "" ? this.setState({ passwordRequired: "dispBlock" }) : this.setState({ passwordRequired: "dispNone" });
         this.setState({incorrectCredentials:'dispNone'});

@@ -8,22 +8,23 @@ class Home  extends Component{
 constructor(props){
     super(props);
     this.state = {
-        isLogin : false,
+        isLogin : true,
         accessToken : ""
     }
     this.updateLoginState = this.updateLoginState.bind(this);
 }
 
+
 updateLoginState(updatedState){
   this.setState({isLogin:updatedState});
-  console.log("Update Login Called");
+  console.log("Login Successful");
 }
 
   render(){
     return (
       <div>
         <header>
-          <Header/>
+          <Header loginState = {this.state.isLogin}/>
         </header> 
         {this.state.isLogin ? <HomePage/> : <LoginCard updateLoginState = {this.updateLoginState}/>}
       </div>
