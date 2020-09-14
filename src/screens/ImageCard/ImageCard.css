@@ -1,0 +1,23 @@
+.profile{
+  left:-295px;
+}
+
+.user-id{
+    position: relative;
+    top : -10px;
+    left :-300px;
+    font-weight: bold;
+
+}
+
+.image-card{
+    width:500px;
+    height:500px;
+}
+
+.post-date{
+    position: relative;
+    left:-216px;
+    top:-40px;
+    color:grey;
+}

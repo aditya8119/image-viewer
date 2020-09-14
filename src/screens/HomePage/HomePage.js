@@ -1,10 +1,13 @@
 import React, {Component} from "react";
+import ImageCard from "../ImageCard/ImageCard";
+import "./HomePage.css"
+
 
 class HomePage extends Component{
     render(){
         return(
-            <div>
-                <p>Welcome to your home page</p>
+            <div className="content-screen">
+                <ImageCard/>
             </div>
         )
     }

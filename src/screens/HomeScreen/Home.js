@@ -8,7 +8,7 @@ class Home  extends Component{
 constructor(props){
     super(props);
     this.state = {
-        isLogin : true,
+        isLogin : false,
         accessToken : ""
     }
     this.updateLoginState = this.updateLoginState.bind(this);

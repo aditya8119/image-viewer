@@ -28,12 +28,14 @@ class LoginCard extends Component {
         this.state.username === "" ? this.setState({usernameRequired: "dispBlock" }) : this.setState({ usernameRequired: "dispNone" });
         this.state.password === "" ? this.setState({ passwordRequired: "dispBlock" }) : this.setState({ passwordRequired: "dispNone" });
         this.setState({incorrectCredentials:'dispNone'});
-
         if (this.state.usernameRequired === 'dispNone'){
             if(this.state.passwordRequired === 'dispNone'){
                 if (this.state.username === "admin"){
                     if (this.state.password === "admin"){
                         this.props.updateLoginState(this.state.isLogin);
+                    }
+                    else {
+                        this.setState({incorrectCredentials:'dispBlock'});
                     }
                 } else {
                     this.setState({incorrectCredentials:'dispBlock'});
