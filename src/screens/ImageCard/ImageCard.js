@@ -12,7 +12,7 @@ class ImageCard extends Component {
     render(){
         return(
             <div>
-                <Card raised="true" className="image-card">
+                <Card raised='true' className="image-card">
                     <CardHeader action={
                         <span>
                         <IconButton className="profile">
@@ -24,7 +24,7 @@ class ImageCard extends Component {
                         </Typography>  
                         </span>
                         <br/>
-                        <span class="post-date">
+                        <span className="post-date">
                         <Typography variant="subtitle2">
                             03/09/2020 16:07:24
                         </Typography>
